@@ -1,4 +1,4 @@
-FROM oiax/rails6-deps:latest
+FROM oiax/rails6-deps:6.0.0
 
 ARG UID=1000
 ARG GID=1000

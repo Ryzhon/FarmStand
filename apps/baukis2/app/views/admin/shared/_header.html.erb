@@ -1,0 +1,12 @@
+<header>
+<span class ="logo-mark"> BauSKIS2</span>
+<%= content_tag(:span, flash.notice,class: "notice") if flash.notice %>
+<%= content_tag(:span, flash.alert,class: "alert") if flash.alert %>
+<%=
+if current_administrator
+link_to "logout", :admin_session, method: :delete
+else
+link_to "login", :admin_login
+end
+%>
+</header>

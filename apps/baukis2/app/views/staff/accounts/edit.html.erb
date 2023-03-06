@@ -1,0 +1,12 @@
+<% @title = "edit account info"%>
+<h1><%=@title%></h1>
+
+<div>
+<%= form_with model: @staff_member, url: :staff_account do |f| %>
+<%=render "form", f: f%>
+<div>
+<%=f.submit "更新" %>
+<%= link_to "キャンセル", :staff_account %>
+</div>
+<%end%>
+</div>
