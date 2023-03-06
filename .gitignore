@@ -1,4 +1,4 @@
-/apps/*
+# /apps/*
 !/apps/.keep
 /tmp/*
 !/tmp/.keep
