@@ -14,16 +14,14 @@ class Staff::SessionsController < Staff::Base
             staff_member = 
             StaffMember.find_by("LOWER(email) = ?", @form.email.downcase)
         end
-        # if staff_member
         if Staff::Authenticator.new(staff_member).authenticate(@form.password)
-            # session[:staff_member_id]=staff_member.id
-            # flash.notice = "ログインしました"
-            # redirect_to :staff_root
+
             if staff_member.suspended?
                 flash.now.alert = "アカウントが停止されています"
                 render action: "new"
             else
                 session[:staff_member_id] = staff_member.id
+                session[:last_access_time] = Time.current
                 flash.notice = "ログインしました"
                 redirect_to :staff_root
             end

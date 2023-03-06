@@ -1,4 +1,5 @@
 class Admin::TopController < Admin::Base
+    skip_before_aciton :authorize
     def index
         # render action: "index"
         if current_administrator
